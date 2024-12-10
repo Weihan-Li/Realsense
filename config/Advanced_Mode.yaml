@@ -1,0 +1,77 @@
+# RealSense Advanced Mode Configuration
+
+# Controls
+depth_control:
+  laser_power: 360
+  laser_state: 1
+  depth_units: 0.0001  # 0.1mm
+  depth_clamp_min: 0
+  depth_clamp_max: 65535
+  depth_close_threshold: 20
+  depth_far_threshold: 70
+  depth_gain: 16
+
+# Advanced Controls
+rsm:
+  rsmBypass: 0
+  diffThresh: 50
+  sloRauDiffThresh: 1
+  removeThresh: 50
+
+# Depth Visualization
+depth_table:
+  depthUnits: 100
+  depthClampMin: 0
+  depthClampMax: 65535
+  disparityMode: 0
+  disparityShift: 0
+
+# Post-Processing
+post_processing:
+  # Spatial Filter
+  spatial_filter:
+    enable: true
+    magnitude: 2
+    smooth_alpha: 0.5
+    smooth_delta: 20
+    
+  # Temporal Filter
+  temporal_filter:
+    enable: true
+    smooth_alpha: 0.4
+    smooth_delta: 20
+    persistence_control: 3
+    
+  # Hole Filling
+  hole_filling:
+    enable: true
+    mode: 1  # 1 for edge-preserving
+    
+  # Decimation Filter
+  decimation_filter:
+    enable: true
+    magnitude: 2
+
+# HDR Mode
+hdr_mode:
+  enable: false
+  sequence_size: 2
+  exposure_min_ms: 1
+  exposure_max_ms: 16
+
+# Streaming Modes
+stream_config:
+  depth_fps: 30
+  color_fps: 30
+  depth_resolution: [848, 480]
+  color_resolution: [848, 480]
+  stream_format:
+    depth: 'z16'
+    color: 'rgb8'
+
+# Additional Settings
+additional_settings:
+  global_time_enabled: true
+  auto_exposure_priority: true
+  emitter_enabled: true
+  frames_queue_size: 16
